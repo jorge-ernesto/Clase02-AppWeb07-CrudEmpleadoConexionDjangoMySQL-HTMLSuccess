@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+</head>
+
+<body>
+    <center>
+        <h1>Editar Empleado</h1>
+        <hr />
+        <form method="POST" action="/modificar/{{ empleado.0 }}">
+            {% csrf_token %}
+            <table border="1">
+                <tr>
+                    <td>Codigo</td>
+                    <td><input type="text" readonly="true" name="id" value="{{ empleado.0 }}" /></td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td><input type="text" name="nombre" value="{{ empleado.1 }}" /></td>
+                </tr>
+                <tr>
+                    <td>Apellido</td>
+                    <td><input type="text" name="apellido" value="{{ empleado.2 }}" /></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" name="email" value="{{ empleado.3 }}" /></td>
+                </tr>
+            </table>
+            <input type="submit" value="Actualizar"/> &nbsp;
+            <a href="{% url 'listarempleado' %}">Regresar a index</a>
+        </form>
+        <br />
+        {% if messages %}
+        {% for msg in messages %}
+        <h3 style="color:green;">{{ msg }}</h3>
+        {% endfor %}
+        {% endif%}
+
+    </center>
+</body>
+
+</html>
