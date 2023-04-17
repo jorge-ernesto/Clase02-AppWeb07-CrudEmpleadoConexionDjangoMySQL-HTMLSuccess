@@ -1,9 +1,9 @@
 from django import forms
 from app.models import Empleado
 
+# El formulario hereda las validaciones definidas en el modelo.
 class EmpleadoForm(forms.ModelForm):
-
-    class meta:
-        model=Empleado
-        fields='__all__'
-        #fields=['nombre','apellido','email','estado']
+    class Meta:
+        model = Empleado
+        fields = '__all__'
+        # fields = ['nombre', 'apellido', 'email', 'estado']  # Otra forma
