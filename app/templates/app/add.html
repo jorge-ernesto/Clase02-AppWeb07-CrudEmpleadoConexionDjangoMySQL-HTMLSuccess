@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -11,21 +11,23 @@
 <body>
     <center>
         <h1>Adicionar Empleado</h1>
-        <hr/>
+        <hr />
         <form method="POST">
             {% csrf_token %}
 
             Nombres :<input type="text" name="nombre" placeholder="Nombre"><br />
             Apellidos :<input type="text" name="apellido" placeholder="Apellidos"><br />
             Email :<input type="email" name="email" placeholder="Email"><br />
-            
+
             <input type="submit" value="Registrar"><br />
-            <br>
+            <br />
+
             <a href="{% url 'listarempleado' %}">Regresar a index</a>
+
             {% if messages %}
-            {% for msg in messages %}
-                <h3 style="color:green;">{{ msg }}</h3>
-            {% endfor %}
+                {% for msg in messages %}
+                    <h3 style="color:green;">{{ msg }}</h3>
+                {% endfor %}
             {% endif %}
         </form>
     </center>

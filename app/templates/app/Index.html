@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -11,30 +11,30 @@
 <body>
     <h1>Lista de Empleados</h1>
     <form action="{% url 'insertarempleado' %}">
-    <hr />
-    <input type="submit" value="Nuevo Empleado"/>
-    <table border="1">
-        <tr>
-            <th>Codigo</th>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Email</th>
-            <th>Estado</th>
-            <th colspan="2">Accion</th>
-        </tr>
-        {% for emp in empleados %}
-        <tr>
-            <td>{{ emp.0 }}</td>
-            <td>{{ emp.1 }}</td>
-            <td>{{ emp.2 }}</td>
-            <td>{{ emp.3 }}</td>
-            <td>{{ emp.4 }}</td>
-            <td><a href="/editar/{{ emp.0 }}">Editar</a></td>
-            <td><a href="/eliminar/{{ emp.0 }}" onclick="return confirm('¿Estás seguro que quieres eliminar?')">Eliminar</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-</form>
+        <hr />
+        <input type="submit" value="Nuevo Empleado" />
+        <table border="1">
+            <tr>
+                <th>Codigo</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Estado</th>
+                <th colspan="2">Accion</th>
+            </tr>
+            {% for emp in empleados %}
+                <tr>
+                    <td>{{ emp.0 }}</td>
+                    <td>{{ emp.1 }}</td>
+                    <td>{{ emp.2 }}</td>
+                    <td>{{ emp.3 }}</td>
+                    <td>{{ emp.4 }}</td>
+                    <td><a href="/editar/{{ emp.0 }}">Editar</a></td>
+                    <td><a href="/eliminar/{{ emp.0 }}" onclick="return confirm('¿Estás seguro que quieres eliminar?')">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
 </body>
 
 </html>
